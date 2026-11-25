@@ -1,0 +1,17 @@
+
+1.启动
+/usr/local/openresty/nginx/sbin/nginx -c /home/cliondev/code/openresty12532/nginx.conf -g "daemon off;"
+
+
+2.reload
+/usr/local/openresty/nginx/sbin/nginx -c /home/cliondev/code/openresty12532/nginx.conf -s reload
+
+
+3.访问
+curl http://localhost:8080/test_lua
+curl http://localhost:8080/ai/test
+
+4.关闭
+ctl C 
+lsof -i:8080
+kill -9 进程PID号
