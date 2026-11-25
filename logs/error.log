@@ -391,3 +391,127 @@
 2026/11/24 14:45:37 [notice] 82404#0: signal 17 (SIGCHLD) received from 82405
 2026/11/24 14:45:37 [notice] 82404#0: worker process 82405 exited with code 0
 2026/11/24 14:45:37 [notice] 82404#0: exit
+2026/11/25 10:31:19 [notice] 9347#0: using the "epoll" event method
+2026/11/25 10:31:19 [notice] 9347#0: openresty/1.25.3.2
+2026/11/25 10:31:19 [notice] 9347#0: built by gcc 14.2.0 (Ubuntu 14.2.0-19ubuntu2) 
+2026/11/25 10:31:19 [notice] 9347#0: OS: Linux 6.14.0-37-generic
+2026/11/25 10:31:19 [notice] 9347#0: getrlimit(RLIMIT_NOFILE): 1073741816:1073741816
+2026/11/25 10:31:19 [notice] 9347#0: start worker processes
+2026/11/25 10:31:19 [notice] 9347#0: start worker process 9348
+2026/11/25 10:31:30 [info] 9348#0: *1 [lua] content_by_lua(nginx.conf:46):2: === Lua环境运行成功 ===, client: 127.0.0.1, server: localhost, request: "GET /test_lua HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:31:30 [info] 9348#0: *1 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:31:53 [notice] 9347#0: signal 2 (SIGINT) received, exiting
+2026/11/25 10:31:53 [notice] 9348#0: signal 2 (SIGINT) received, exiting
+2026/11/25 10:31:53 [info] 9348#0: epoll_wait() failed (4: Interrupted system call)
+2026/11/25 10:31:53 [notice] 9348#0: exiting
+2026/11/25 10:31:53 [notice] 9348#0: exit
+2026/11/25 10:31:53 [notice] 9347#0: signal 17 (SIGCHLD) received from 9348
+2026/11/25 10:31:53 [notice] 9347#0: worker process 9348 exited with code 0
+2026/11/25 10:31:53 [notice] 9347#0: exit
+2026/11/25 10:54:36 [alert] 10643#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 10:54:36 [notice] 10643#0: using the "epoll" event method
+2026/11/25 10:54:36 [notice] 10643#0: openresty/1.25.3.2
+2026/11/25 10:54:36 [notice] 10643#0: built by gcc 14.2.0 (Ubuntu 14.2.0-19ubuntu2) 
+2026/11/25 10:54:36 [notice] 10643#0: OS: Linux 6.14.0-37-generic
+2026/11/25 10:54:36 [notice] 10643#0: getrlimit(RLIMIT_NOFILE): 1073741816:1073741816
+2026/11/25 10:54:36 [notice] 10644#0: start worker processes
+2026/11/25 10:54:36 [notice] 10644#0: start worker process 10645
+2026/11/25 10:54:37 [info] 10645#0: *1 [lua] content_by_lua(nginx.conf:46):2: === Lua环境运行成功 ===, client: 127.0.0.1, server: localhost, request: "GET /test_lua HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:54:37 [info] 10645#0: *1 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:54:37 [info] 10645#0: *2 [lua] token_limit.lua:393: test(): === token_limit 插件自检 ===, client: 127.0.0.1, server: localhost, request: "GET /ai/token_limit_selftest HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:54:37 [info] 10645#0: *2 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:54:44 [info] 10645#0: *4 [lua] admin.lua:67: run(): ai_proxy admin: 网关 token [gw-test-1] 已写入, models=gpt-4o-mini,glm-4,qwen-turbo,ernie-4.0-8k, client: 127.0.0.1, server: localhost, request: "POST /ai/proxy_admin HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:54:44 [info] 10645#0: *4 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:54:44 [info] 10645#0: *5 [lua] admin.lua:89: run(): ai_proxy admin: 路由表已覆盖, client: 127.0.0.1, server: localhost, request: "POST /ai/proxy_admin HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:54:44 [info] 10645#0: *5 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:54:51 [info] 10645#0: *6 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:54:51 [info] 10645#0: *6 [lua] token_limit.lua:286: access(): token_limit: consumer=[gw-test-1] 预占 107 token（prompt 估 7）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:54:51 [error] 10645#0: *6 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "localhost:8080"
+2026/11/25 10:54:51 [error] 10645#0: *6 failed to run log_by_lua*: /usr/local/openresty/lualib/resty/redis.lua:63: API disabled in the context of log_by_lua*
+stack traceback:
+	[C]: in function 'tcp'
+	/usr/local/openresty/lualib/resty/redis.lua:63: in function 'new'
+	...e/openresty12532/lua_plugins/token_limit/token_limit.lua:117: in function 'redis_conn'
+	...e/openresty12532/lua_plugins/token_limit/token_limit.lua:366: in function 'log'
+	log_by_lua(nginx.conf:114):2: in main chunk while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "localhost:8080"
+2026/11/25 10:54:51 [info] 10645#0: *6 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:57:01 [alert] 10797#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 10:57:01 [notice] 10797#0: signal process started
+2026/11/25 10:57:01 [notice] 10644#0: signal 1 (SIGHUP) received from 10797, reconfiguring
+2026/11/25 10:57:01 [notice] 10644#0: reconfiguring
+2026/11/25 10:57:01 [alert] 10644#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 10:57:01 [notice] 10644#0: using the "epoll" event method
+2026/11/25 10:57:01 [notice] 10644#0: start worker processes
+2026/11/25 10:57:01 [notice] 10644#0: start worker process 10799
+2026/11/25 10:57:01 [notice] 10645#0: gracefully shutting down
+2026/11/25 10:57:01 [notice] 10645#0: exiting
+2026/11/25 10:57:01 [notice] 10645#0: exit
+2026/11/25 10:57:01 [notice] 10644#0: signal 17 (SIGCHLD) received from 10645
+2026/11/25 10:57:01 [notice] 10644#0: worker process 10645 exited with code 0
+2026/11/25 10:57:01 [notice] 10644#0: signal 29 (SIGIO) received
+2026/11/25 10:57:02 [info] 10799#0: *9 [lua] content_by_lua(nginx.conf:46):2: === Lua环境运行成功 ===, client: 127.0.0.1, server: localhost, request: "GET /test_lua HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:57:02 [info] 10799#0: *9 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:57:06 [info] 10799#0: *10 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:57:06 [info] 10799#0: *10 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 107 token（prompt 估 7）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:57:06 [error] 10799#0: *10 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "localhost:8080"
+2026/11/25 10:57:06 [info] 10799#0: *10 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:57:06 [info] 10799#0: *13 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 107 -> 实际 0，最终记账 107, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:57:40 [info] 10799#0: *14 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:57:40 [info] 10799#0: *14 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 101 token（prompt 估 1）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:57:40 [error] 10799#0: *14 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "localhost:8080"
+2026/11/25 10:57:40 [info] 10799#0: *14 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:57:40 [info] 10799#0: *17 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 101 -> 实际 0，最终记账 101, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:58:50 [info] 10799#0: *18 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:58:50 [info] 10799#0: *18 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 107 token（prompt 估 7）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:58:50 [info] 10799#0: *18 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:58:50 [info] 10799#0: *21 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 107 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:58:56 [info] 10799#0: *22 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:58:56 [warn] 10799#0: *22 [lua] token_limit.lua:241: access(): token_limit: set_body_data fail: nil, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:58:56 [info] 10799#0: *22 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 101 token（prompt 估 1）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:58:56 [info] 10799#0: *22 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:58:56 [info] 10799#0: *25 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 101 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:59:03 [info] 10799#0: *27 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:03 [info] 10799#0: *27 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:11 [info] 10799#0: *29 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:11 [warn] 10799#0: *29 [lua] token_limit.lua:241: access(): token_limit: set_body_data fail: nil, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:11 [info] 10799#0: *29 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 18001 token（prompt 估 1）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:11 [info] 10799#0: *29 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:11 [info] 10799#0: *32 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 18001 -> 实际 0，最终记账 18001, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:59:12 [info] 10799#0: *34 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:12 [info] 10799#0: *34 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:17 [info] 10799#0: *36 [lua] ernie_token.lua:110: get_token(): ernie_token: access_token 已刷新并缓存, ttl=2591700, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:17 [info] 10799#0: *36 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=ernie-4.0-8k provider=ernie -> 127.0.0.1:19001/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:17 [warn] 10799#0: *36 [lua] token_limit.lua:241: access(): token_limit: set_body_data fail: nil, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:17 [info] 10799#0: *36 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 104 token（prompt 估 4）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:18 [info] 10799#0: *40 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 104 -> 实际 30，最终记账 30, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:59:18 [info] 10799#0: *36 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:23 [info] 10799#0: *42 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=glm-4 provider=glm -> 127.0.0.1:19001/api/paas/v4/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:23 [warn] 10799#0: *42 [lua] token_limit.lua:241: access(): token_limit: set_body_data fail: nil, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:23 [info] 10799#0: *42 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 103 token（prompt 估 3）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:23 [info] 10799#0: *42 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:23 [info] 10799#0: *45 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 103 -> 实际 20，最终记账 20, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:59:30 [info] 10799#0: *47 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:30 [info] 10799#0: *49 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:30 [info] 10799#0: *50 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:30 [info] 10799#0: *47 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 8003 token（prompt 估 3）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:30 [info] 10799#0: *52 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:30 [info] 10799#0: *55 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:30 [info] 10799#0: *49 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 8003 token（prompt 估 3）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:30 [info] 10799#0: *50 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:30 [info] 10799#0: *47 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:30 [info] 10799#0: *59 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 8003 -> 实际 0，最终记账 8003, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:59:30 [info] 10799#0: *52 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:30 [info] 10799#0: *55 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:30 [info] 10799#0: *60 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 8003 -> 实际 0，最终记账 8003, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:59:30 [info] 10799#0: *49 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:43 [info] 10799#0: *61 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:43 [info] 10799#0: *61 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 18000 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:43 [info] 10799#0: *61 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:43 [info] 10799#0: *64 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 18000 -> 实际 0，最终记账 18000, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 10:59:44 [info] 10799#0: *65 client 127.0.0.1 closed keepalive connection
+2026/11/25 10:59:44 [info] 10799#0: *66 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 10:59:44 [info] 10799#0: *66 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:00:09 [info] 10799#0: *68 [lua] ai_proxy.lua:198: access(): ai_proxy: [gw-test-1] model=qwen-turbo provider=qwen -> 127.0.0.1:19001/compatible-mode/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 11:00:09 [info] 10799#0: *68 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 5000 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
+2026/11/25 11:00:09 [info] 10799#0: *71 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 5000 -> 实际 0，最终记账 5000, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:00:09 [info] 10799#0: *68 client 127.0.0.1 closed keepalive connection

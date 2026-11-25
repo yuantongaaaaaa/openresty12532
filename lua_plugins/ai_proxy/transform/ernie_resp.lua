@@ -72,7 +72,7 @@ local function on_event(event_str)
             out[#out + 1] = sse.emit_json(make_chunk(ctx, obj))
         end
         -- 结束前补一个 finish_reason chunk，OpenAI SDK 依赖它收尾
-        out[#out + 1] = sse.emit_json({
+        local final_chunk = {
             id = ctx.ernie_msg_id or "ernie-proxy",
             object = "chat.completion.chunk",
             created = obj.created or ngx.time(),
@@ -82,7 +82,13 @@ local function on_event(event_str)
                 delta = {},
                 finish_reason = (ctx.ernie_fn_name and "tool_calls") or "stop",
             }},
-        })
+        }
+        -- 百度 usage 在最后一包：透传给限流插件抓真实消耗
+        -- （usage 可能是 null，cjson.null 是 truthy，需 type 检查）
+        if type(obj.usage) == "table" then
+            final_chunk.usage = obj.usage
+        end
+        out[#out + 1] = sse.emit_json(final_chunk)
         out[#out + 1] = sse.DONE_EVENT
         return table.concat(out)
     end

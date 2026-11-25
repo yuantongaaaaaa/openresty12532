@@ -1,2 +1,2 @@
 [MOCK] 上游 mock 启动: 127.0.0.1:19001
-[MOCK] GET /oauth/2.0/token
+[MOCK] POST /v1/chat/completions model=gpt-4o-mini stream=False auth=NONE

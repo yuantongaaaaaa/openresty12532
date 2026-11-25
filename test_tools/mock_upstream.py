@@ -80,7 +80,7 @@ class H(BaseHTTPRequestHandler):
                                  "message": {"role": "assistant",
                                              "content": "OpenAI 非流式回答"}}],
                     "usage": {"total_tokens": 10}})
-            return self._send_sse([
+            events = [
                 {"id": "chatcmpl-mock", "object": "chat.completion.chunk",
                  "created": CREATED, "model": model,
                  "choices": [{"index": 0, "finish_reason": None,
@@ -93,7 +93,17 @@ class H(BaseHTTPRequestHandler):
                  "created": CREATED, "model": model,
                  "choices": [{"index": 0, "finish_reason": "stop",
                               "delta": {}}]},
-            ])
+            ]
+            # OpenAI 流式默认不带 usage；只有带 stream_options.include_usage
+            # 才在末尾补 usage chunk（choices 为空），限流插件靠它抓真实消耗
+            if (body.get("stream_options") or {}).get("include_usage"):
+                events.append({
+                    "id": "chatcmpl-mock", "object": "chat.completion.chunk",
+                    "created": CREATED, "model": model,
+                    "choices": [],
+                    "usage": {"prompt_tokens": 7, "completion_tokens": 3,
+                              "total_tokens": 10}})
+            return self._send_sse(events)
 
         if path == "/api/paas/v4/chat/completions":
             # ---- GLM mock：老版本坑（object=chat.completion 非 chunk、tool_calls 缺 index）----
@@ -109,6 +119,7 @@ class H(BaseHTTPRequestHandler):
                                                              "function": {"name": "get_weather",
                                                                           "arguments": "{\"city\":\"上海\"}"}}]}}],
                     "usage": {"total_tokens": 20}})
+            # GLM 流式默认最后一包带 usage（choices 为空）
             return self._send_sse([
                 {"id": "888abc", "object": "chat.completion", "created": CREATED,
                  "model": model,
@@ -130,6 +141,10 @@ class H(BaseHTTPRequestHandler):
                  "model": model,
                  "choices": [{"index": 0, "finish_reason": "stop",
                               "delta": {}}]},
+                {"id": "888abc", "object": "chat.completion.chunk", "created": CREATED,
+                 "model": model, "choices": [],
+                 "usage": {"prompt_tokens": 12, "completion_tokens": 8,
+                           "total_tokens": 20}},
             ])
 
         if path == "/compatible-mode/v1/chat/completions":
