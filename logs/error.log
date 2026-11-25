@@ -515,3 +515,268 @@ stack traceback:
 2026/11/25 11:00:09 [info] 10799#0: *68 [lua] token_limit.lua:288: access(): token_limit: consumer=[gw-test-1] 预占 5000 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "localhost:8080"
 2026/11/25 11:00:09 [info] 10799#0: *71 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[gw-test-1] 预占 5000 -> 实际 0，最终记账 5000, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
 2026/11/25 11:00:09 [info] 10799#0: *68 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:40:20 [info] 10799#0: *72 [lua] content_by_lua(nginx.conf:46):2: === Lua环境运行成功 ===, client: 127.0.0.1, server: localhost, request: "GET /test_lua HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:40:20 [info] 10799#0: *72 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:45:47 [alert] 12351#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:45:47 [alert] 12352#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:45:47 [notice] 12352#0: signal process started
+2026/11/25 11:45:47 [notice] 10644#0: signal 1 (SIGHUP) received from 12352, reconfiguring
+2026/11/25 11:45:47 [notice] 10644#0: reconfiguring
+2026/11/25 11:45:47 [alert] 10644#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:45:47 [notice] 10644#0: using the "epoll" event method
+2026/11/25 11:45:47 [notice] 10644#0: start worker processes
+2026/11/25 11:45:47 [notice] 10644#0: start worker process 12354
+2026/11/25 11:45:47 [notice] 10799#0: gracefully shutting down
+2026/11/25 11:45:47 [notice] 10799#0: exiting
+2026/11/25 11:45:47 [notice] 10799#0: exit
+2026/11/25 11:45:47 [notice] 10644#0: signal 17 (SIGCHLD) received from 10799
+2026/11/25 11:45:47 [notice] 10644#0: worker process 10799 exited with code 0
+2026/11/25 11:45:47 [notice] 10644#0: signal 29 (SIGIO) received
+2026/11/25 11:45:48 [info] 12354#0: *73 [lua] quota.lua:486: test(): === quota 插件自检 ===, client: 127.0.0.1, server: localhost, request: "GET /ai/quota_selftest HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:45:48 [info] 12354#0: *73 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:04 [info] 12354#0: *75 [lua] admin.lua:67: run(): ai_proxy admin: 网关 token [quota-test-001] 已写入, models=gpt-4o-mini, client: 127.0.0.1, server: localhost, request: "POST /ai/proxy_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:46:04 [info] 12354#0: *75 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:04 [info] 12354#0: *76 [lua] admin.lua:89: run(): ai_proxy admin: 路由表已覆盖, client: 127.0.0.1, server: localhost, request: "POST /ai/proxy_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:46:04 [info] 12354#0: *76 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:04 [info] 12354#0: *77 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:04 [info] 12354#0: *79 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:04 [info] 12354#0: *81 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:04 [info] 12354#0: *83 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:04 [info] 12354#0: *85 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:04 [info] 12354#0: *87 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:17 [alert] 12411#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:46:17 [notice] 12411#0: signal process started
+2026/11/25 11:46:17 [notice] 10644#0: signal 1 (SIGHUP) received from 12411, reconfiguring
+2026/11/25 11:46:17 [notice] 10644#0: reconfiguring
+2026/11/25 11:46:17 [alert] 10644#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:46:17 [notice] 10644#0: using the "epoll" event method
+2026/11/25 11:46:17 [notice] 10644#0: start worker processes
+2026/11/25 11:46:17 [notice] 10644#0: start worker process 12413
+2026/11/25 11:46:18 [notice] 12354#0: gracefully shutting down
+2026/11/25 11:46:18 [notice] 12354#0: exiting
+2026/11/25 11:46:18 [notice] 12354#0: exit
+2026/11/25 11:46:18 [notice] 10644#0: signal 17 (SIGCHLD) received from 12354
+2026/11/25 11:46:18 [notice] 10644#0: worker process 12354 exited with code 0
+2026/11/25 11:46:18 [notice] 10644#0: signal 29 (SIGIO) received
+2026/11/25 11:46:19 [info] 12413#0: *89 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:19 [info] 12413#0: *91 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:19 [info] 12413#0: *93 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:19 [info] 12413#0: *95 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:19 [info] 12413#0: *97 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:46:19 [error] 12413#0: *99 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:114: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:114: in function '__newindex'
+	...ode/openresty12532/lua_plugins/quota/quota_admin_api.lua:113: in function 'run'
+	content_by_lua(nginx.conf:98):2: in main chunk, client: 127.0.0.1, server: localhost, request: "PUT /ai/quota_admin?consumer_key=x HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:02 [alert] 12492#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:47:02 [notice] 12492#0: signal process started
+2026/11/25 11:47:02 [notice] 10644#0: signal 1 (SIGHUP) received from 12492, reconfiguring
+2026/11/25 11:47:02 [notice] 10644#0: reconfiguring
+2026/11/25 11:47:02 [alert] 10644#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:47:02 [notice] 10644#0: using the "epoll" event method
+2026/11/25 11:47:02 [notice] 10644#0: start worker processes
+2026/11/25 11:47:02 [notice] 10644#0: start worker process 12494
+2026/11/25 11:47:03 [notice] 12413#0: gracefully shutting down
+2026/11/25 11:47:03 [notice] 12413#0: exiting
+2026/11/25 11:47:03 [notice] 12413#0: exit
+2026/11/25 11:47:03 [notice] 10644#0: signal 17 (SIGCHLD) received from 12413
+2026/11/25 11:47:03 [notice] 10644#0: worker process 12413 exited with code 0
+2026/11/25 11:47:03 [notice] 10644#0: signal 29 (SIGIO) received
+2026/11/25 11:47:03 [info] 12494#0: *101 [lua] quota_admin_api.lua:159: run(): quota admin: [quota-test-001] 月度总额设为 50, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:03 [info] 12494#0: *101 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:04 [info] 12494#0: *103 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:04 [info] 12494#0: *105 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:04 [info] 12494#0: *107 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:04 [info] 12494#0: *109 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:04 [error] 12494#0: *111 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:114: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:114: in function '__newindex'
+	...ode/openresty12532/lua_plugins/quota/quota_admin_api.lua:139: in function 'run'
+	content_by_lua(nginx.conf:98):2: in main chunk, client: 127.0.0.1, server: localhost, request: "PUT /ai/quota_admin?consumer_key=x HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:12 [error] 12494#0: *113 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:114: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:114: in function '__newindex'
+	...ode/openresty12532/lua_plugins/quota/quota_admin_api.lua:139: in function 'run'
+	content_by_lua(nginx.conf:98):2: in main chunk, client: 127.0.0.1, server: localhost, request: "PUT /ai/quota_admin?consumer_key=x HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:12 [error] 12494#0: *115 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:114: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:114: in function '__newindex'
+	...ode/openresty12532/lua_plugins/quota/quota_admin_api.lua:139: in function 'run'
+	content_by_lua(nginx.conf:98):2: in main chunk, client: 127.0.0.1, server: localhost, request: "DELETE /ai/quota_admin?consumer_key=x HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:29 [alert] 12545#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:47:29 [notice] 12545#0: signal process started
+2026/11/25 11:47:29 [notice] 10644#0: signal 1 (SIGHUP) received from 12545, reconfiguring
+2026/11/25 11:47:29 [notice] 10644#0: reconfiguring
+2026/11/25 11:47:29 [alert] 10644#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/25 11:47:29 [notice] 10644#0: using the "epoll" event method
+2026/11/25 11:47:29 [notice] 10644#0: start worker processes
+2026/11/25 11:47:29 [notice] 10644#0: start worker process 12547
+2026/11/25 11:47:29 [notice] 12494#0: gracefully shutting down
+2026/11/25 11:47:29 [notice] 12494#0: exiting
+2026/11/25 11:47:29 [notice] 12494#0: exit
+2026/11/25 11:47:29 [notice] 10644#0: signal 17 (SIGCHLD) received from 12494
+2026/11/25 11:47:29 [notice] 10644#0: worker process 12494 exited with code 0
+2026/11/25 11:47:29 [notice] 10644#0: signal 29 (SIGIO) received
+2026/11/25 11:47:30 [info] 12547#0: *117 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:37 [info] 12547#0: *119 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:37 [info] 12547#0: *119 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:37 [info] 12547#0: *119 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 22 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:37 [error] 12547#0: *119 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/25 11:47:37 [info] 12547#0: *119 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:37 [info] 12547#0: *122 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:47:37 [info] 12547#0: *123 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:47:40 [info] 12547#0: *125 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:40 [info] 12547#0: *125 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:40 [info] 12547#0: *125 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 22 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:40 [error] 12547#0: *125 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/25 11:47:40 [info] 12547#0: *128 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:47:40 [info] 12547#0: *129 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:47:40 [info] 12547#0: *125 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:41 [info] 12547#0: *131 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:41 [info] 12547#0: *131 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:41 [info] 12547#0: *133 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:47:41 [info] 12547#0: *131 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:43 [info] 12547#0: *134 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:43 [info] 12547#0: *134 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:47:43 [info] 12547#0: *134 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:47:43 [info] 12547#0: *136 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:11 [info] 12547#0: *137 [lua] quota_admin_api.lua:187: run(): quota admin: [quota-test-001] 当月消耗已重置, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:11 [info] 12547#0: *137 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:11 [info] 12547#0: *139 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:11 [info] 12547#0: *139 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:11 [info] 12547#0: *139 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 22 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:11 [error] 12547#0: *139 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/25 11:48:11 [info] 12547#0: *142 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:11 [info] 12547#0: *139 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:11 [info] 12547#0: *143 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:12 [info] 12547#0: *145 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:12 [info] 12547#0: *145 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:12 [info] 12547#0: *145 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 22 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:12 [error] 12547#0: *145 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/25 11:48:12 [info] 12547#0: *145 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:12 [info] 12547#0: *148 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:12 [info] 12547#0: *149 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:14 [info] 12547#0: *151 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:14 [info] 12547#0: *151 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:14 [info] 12547#0: *151 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:14 [info] 12547#0: *153 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:15 [info] 12547#0: *154 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:15 [info] 12547#0: *154 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:15 [info] 12547#0: *156 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:15 [info] 12547#0: *154 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:17 [info] 12547#0: *157 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:17 [info] 12547#0: *157 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:17 [info] 12547#0: *159 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:17 [info] 12547#0: *157 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:53 [info] 12547#0: *160 [lua] quota_admin_api.lua:187: run(): quota admin: [quota-test-001] 当月消耗已重置, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:53 [info] 12547#0: *160 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:53 [info] 12547#0: *162 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:53 [info] 12547#0: *162 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:53 [info] 12547#0: *162 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 22 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:53 [info] 12547#0: *162 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:53 [info] 12547#0: *165 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:53 [info] 12547#0: *166 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 22 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:55 [info] 12547#0: *168 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:55 [info] 12547#0: *168 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:55 [info] 12547#0: *168 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 22 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:55 [info] 12547#0: *168 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:55 [info] 12547#0: *171 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:55 [info] 12547#0: *172 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 22 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:56 [info] 12547#0: *174 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:56 [info] 12547#0: *174 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:56 [info] 12547#0: *174 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 22 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:56 [info] 12547#0: *174 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:56 [info] 12547#0: *177 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:56 [info] 12547#0: *178 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 22 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:48:58 [info] 12547#0: *180 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:58 [info] 12547#0: *180 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 22 token（prompt 估 2）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:48:58 [info] 12547#0: *180 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:48:58 [info] 12547#0: *182 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 22 -> 实际 0，最终记账 22, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:12 [info] 12547#0: *183 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:12 [info] 12547#0: *185 [lua] quota_admin_api.lua:178: run(): quota admin: [quota-test-001] 额度调整 100，当前总额 150, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:12 [info] 12547#0: *185 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:12 [info] 12547#0: *187 [lua] quota_admin_api.lua:178: run(): quota admin: [quota-test-001] 额度调整 -30，当前总额 120, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:12 [info] 12547#0: *187 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:12 [info] 12547#0: *189 [lua] quota_admin_api.lua:178: run(): quota admin: [quota-test-001] 额度调整 -999，当前总额 0, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:12 [info] 12547#0: *189 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:19 [info] 12547#0: *191 [lua] quota_admin_api.lua:161: run(): quota admin: [quota-test-001] 月度总额设为 100, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:19 [info] 12547#0: *191 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:19 [info] 12547#0: *193 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:19 [warn] 12547#0: *193 [lua] token_limit.lua:241: access(): token_limit: set_body_data fail: nil, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:19 [info] 12547#0: *193 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:19 [info] 12547#0: *193 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 20 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:19 [info] 12547#0: *193 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:19 [info] 12547#0: *198 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:19 [info] 12547#0: *196 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:28 [info] 12547#0: *200 [lua] admin.lua:67: run(): ai_proxy admin: 网关 token [quota-test-002] 已写入, models=gpt-4o-mini, client: 127.0.0.1, server: localhost, request: "POST /ai/proxy_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:28 [info] 12547#0: *200 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:28 [info] 12547#0: *201 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-002] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:28 [info] 12547#0: *201 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-002] 预占 512 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:28 [info] 12547#0: *201 [lua] quota.lua:342: access(): quota: consumer=[quota-test-002] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:28 [info] 12547#0: *204 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-002] 预占 512 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:28 [info] 12547#0: *201 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:29 [info] 12547#0: *205 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:41 [info] 12547#0: *207 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:41 [info] 12547#0: *207 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:41 [info] 12547#0: *207 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 20 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:41 [info] 12547#0: *210 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:41 [info] 12547#0: *207 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:41 [info] 12547#0: *211 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *213 [lua] quota_admin_api.lua:187: run(): quota admin: [quota-test-001] 当月消耗已重置, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *213 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *215 [lua] quota_admin_api.lua:161: run(): quota admin: [quota-test-001] 月度总额设为 45, client: 127.0.0.1, server: localhost, request: "POST /ai/quota_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *215 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *217 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *217 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *217 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 20 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *217 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *220 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *221 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *223 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *225 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *223 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *223 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 20 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *227 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *228 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *225 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *231 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *233 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *227 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *228 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *223 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *235 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *238 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *225 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *231 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *241 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *236 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *240 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 0，最终记账 20, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *233 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *227 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *244 [lua] ai_proxy.lua:198: access(): ai_proxy: [quota-test-001] model=gpt-4o-mini provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *231 [lua] quota.lua:354: access(): quota: consumer=[quota-test-001] 预占 20 token, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *243 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 0，最终记账 20, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *228 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *238 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *246 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 0，最终记账 20, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *241 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *249 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 0，最终记账 20, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *233 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *244 [lua] token_limit.lua:288: access(): token_limit: consumer=[quota-test-001] 预占 20 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/25 11:49:54 [info] 12547#0: *250 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 0，最终记账 20, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *238 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *251 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *254 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 0，最终记账 20, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *231 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *241 client 127.0.0.1 closed keepalive connection
+2026/11/25 11:49:54 [info] 12547#0: *252 [lua] quota.lua:457: correct_usage(): quota: consumer=[quota-test-001] 预占 20 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *255 [lua] token_limit.lua:390: correct_usage(): token_limit: consumer=[quota-test-001] 预占 20 -> 实际 0，最终记账 20, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/25 11:49:54 [info] 12547#0: *244 client 127.0.0.1 closed keepalive connection

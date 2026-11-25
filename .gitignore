@@ -1,2 +1,5 @@
 /build/
 /logs/
+/logs/access.log
+/logs/error.log
+
