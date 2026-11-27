@@ -108,7 +108,10 @@ end
 local function estimate_request(req)
     local sum = 0
     for _, msg in ipairs(req.messages or {}) do
-        sum = sum + estimate_tokens(msg.content)
+        -- cjson 把 JSON null 解码为 userdata，msg 可能是 cjson.null，必须 type 守卫
+        if type(msg) == "table" then
+            sum = sum + estimate_tokens(msg.content)
+        end
     end
     local max_tokens = tonumber(req.max_tokens)
     local reserve_out = (max_tokens and max_tokens > 0) and max_tokens or DEFAULT_OUT_TOKENS
