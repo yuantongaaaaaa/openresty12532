@@ -72,6 +72,31 @@ class H(BaseHTTPRequestHandler):
 
         if path == "/v1/chat/completions":
             # ---- OpenAI mock：标准协议 ----
+
+            # ===== 可观测插件测试场景（model 名携带特殊标记触发）=====
+            # 1. 业务错误：HTTP 200 但响应内带 error 字段（biz_error 指标）
+            if "biz_error" in model:
+                if not stream:
+                    return self._send_json(
+                        {"error": {"message": "mock quota exceeded",
+                                    "type": "quota_error", "code": "mock_quota"}})
+                return self._send_sse(
+                    [{"error": {"message": "mock quota exceeded",
+                                 "type": "quota_error"}}])
+            # 2. 流中断：正常吐几个事件后不发 [DONE] 直接结束（stream_break 指标）
+            if "no_done" in model:
+                return self._send_sse([
+                    {"id": "chatcmpl-mock", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": None,
+                                  "delta": {"role": "assistant",
+                                            "content": "你好"}}]},
+                    {"id": "chatcmpl-mock", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": None,
+                                  "delta": {"content": "，网络断了"}}]},
+                ], with_done=False)
+
             if not stream:
                 return self._send_json({
                     "id": "chatcmpl-mock", "object": "chat.completion",
@@ -95,8 +120,11 @@ class H(BaseHTTPRequestHandler):
                               "delta": {}}]},
             ]
             # OpenAI 流式默认不带 usage；只有带 stream_options.include_usage
-            # 才在末尾补 usage chunk（choices 为空），限流插件靠它抓真实消耗
-            if (body.get("stream_options") or {}).get("include_usage"):
+            # 才在末尾补 usage chunk（choices 为空），限流插件靠它抓真实消耗。
+            # model 名带 no_usage 标记时无视 include_usage（可观测插件的
+            # token 估算兜底分支测试用）
+            if (body.get("stream_options") or {}).get("include_usage") \
+                    and "no_usage" not in model:
                 events.append({
                     "id": "chatcmpl-mock", "object": "chat.completion.chunk",
                     "created": CREATED, "model": model,
