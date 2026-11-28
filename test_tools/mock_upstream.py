@@ -135,6 +135,92 @@ class H(BaseHTTPRequestHandler):
                                   "delta": {}}]},
                 ])
 
+            # ===== AI-JSON插件测试场景 =====
+            # 4. json-good 前缀模型：content 恒为合法 JSON；其中
+            #    schema_injected 字段回显上游收到的最后一条 user 消息里
+            #    是否带注入的 "JSON Schema" 约束（验证 access 注入是否到达上游）
+            if "json-good" in model:
+                msgs = body.get("messages") or []
+                last_user = ""
+                for m in reversed(msgs):
+                    if isinstance(m, dict) and m.get("role") == "user":
+                        last_user = m.get("content", "")
+                        break
+                injected = "JSON Schema" in last_user
+                content = json.dumps({"mock": "ok",
+                                      "schema_injected": injected},
+                                     ensure_ascii=False)
+                if not stream:
+                    return self._send_json({
+                        "id": "chatcmpl-jsongood", "object": "chat.completion",
+                        "created": CREATED, "model": model,
+                        "choices": [{"index": 0, "finish_reason": "stop",
+                                     "message": {"role": "assistant",
+                                                 "content": content}}],
+                        "usage": {"total_tokens": 10}})
+                return self._send_sse([
+                    {"id": "chatcmpl-jsongood", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": None,
+                                  "delta": {"role": "assistant",
+                                            "content": content}}]},
+                    {"id": "chatcmpl-jsongood", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": "stop",
+                                  "delta": {}}]},
+                ])
+
+            # 5. json-bad 前缀模型：content 恒为非法 JSON 文本（非流式触发
+            #    校验失败替换；流式应透传不拦截）
+            if "json-bad" in model:
+                bad = "这不是合法的JSON，只是一段普通文本"
+                if not stream:
+                    return self._send_json({
+                        "id": "chatcmpl-jsonbad", "object": "chat.completion",
+                        "created": CREATED, "model": model,
+                        "choices": [{"index": 0, "finish_reason": "stop",
+                                     "message": {"role": "assistant",
+                                                 "content": bad}}],
+                        "usage": {"total_tokens": 10}})
+                return self._send_sse([
+                    {"id": "chatcmpl-jsonbad", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": None,
+                                  "delta": {"role": "assistant",
+                                            "content": bad}}]},
+                    {"id": "chatcmpl-jsonbad", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": "stop",
+                                  "delta": {}}]},
+                ])
+
+            # 6. json-retry 前缀模型：首次（原始请求）返回非法 JSON；
+            #    带 X-Ai-Json-Retry 头（异步补偿重试）时返回合法 JSON
+            if "json-retry" in model:
+                is_retry = self.headers.get("X-Ai-Json-Retry") == "1"
+                print(f"[MOCK] json_retry is_retry={is_retry}", flush=True)
+                content = ('{"retry":"ok"}' if is_retry
+                           else "第一次输出非法JSON，等待重试")
+                if not stream:
+                    return self._send_json({
+                        "id": "chatcmpl-jsonretry", "object": "chat.completion",
+                        "created": CREATED, "model": model,
+                        "choices": [{"index": 0, "finish_reason": "stop",
+                                     "message": {"role": "assistant",
+                                                 "content": content}}],
+                        "usage": {"total_tokens": 10}})
+                return self._send_sse([
+                    {"id": "chatcmpl-jsonretry", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": None,
+                                  "delta": {"role": "assistant",
+                                            "content": content}}]},
+                    {"id": "chatcmpl-jsonretry", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": "stop",
+                                  "delta": {}}]},
+                ])
+
             if not stream:
                 return self._send_json({
                     "id": "chatcmpl-mock", "object": "chat.completion",

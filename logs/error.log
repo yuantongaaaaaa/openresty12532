@@ -6558,3 +6558,944 @@ stack traceback:
 2026/11/28 12:05:39 [info] 26541#0: *123 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[gt-history-test] 预占 519 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
 2026/11/28 12:05:45 [info] 26541#0: *127 [lua] ai_history.lua:405: test(): === ai_history 插件自检 ===, client: 127.0.0.1, server: localhost, request: "GET /ai/history_selftest HTTP/1.1", host: "127.0.0.1:8080"
 2026/11/28 12:05:45 [info] 26541#0: *127 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:38:48 [notice] 26238#0: signal 1 (SIGHUP) received from 27653, reconfiguring
+2026/11/28 12:38:48 [notice] 26238#0: reconfiguring
+2026/11/28 12:38:48 [alert] 26238#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/28 12:38:48 [notice] 26238#0: using the "epoll" event method
+2026/11/28 12:38:48 [notice] 26238#0: start worker processes
+2026/11/28 12:38:48 [notice] 26238#0: start worker process 27657
+2026/11/28 12:38:48 [notice] 26541#0: gracefully shutting down
+2026/11/28 12:38:48 [notice] 26541#0: exiting
+2026/11/28 12:38:48 [notice] 26541#0: exit
+2026/11/28 12:38:48 [notice] 26238#0: signal 17 (SIGCHLD) received from 26541
+2026/11/28 12:38:48 [notice] 26238#0: worker process 26541 exited with code 0
+2026/11/28 12:38:48 [notice] 26238#0: signal 29 (SIGIO) received
+2026/11/28 12:38:49 [info] 27657#0: *129 [lua] content_by_lua(nginx.conf:114):2: === Lua环境运行成功 ===, client: 127.0.0.1, server: localhost, request: "GET /test_lua HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:38:49 [info] 27657#0: *129 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:39:02 [info] 27657#0: *130 [lua] admin.lua:67: run(): ai_proxy admin: 网关 token [json-test-token] 已写入, models=gpt-json-good,gpt-json-bad,gpt-json-retry, client: 127.0.0.1, server: localhost, request: "POST /ai/proxy_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:39:02 [info] 27657#0: *130 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:39:02 [info] 27657#0: *131 [lua] admin.lua:89: run(): ai_proxy admin: 路由表已覆盖, client: 127.0.0.1, server: localhost, request: "POST /ai/proxy_admin HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:39:02 [info] 27657#0: *131 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:39:02 [info] 27657#0: *132 [lua] ai_json.lua:580: test(): === ai_json 插件自检 ===, client: 127.0.0.1, server: localhost, request: "GET /ai/json_selftest HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:39:02 [info] 27657#0: *132 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:39:51 [info] 27657#0: *133 [lua] ai_json.lua:579: test(): === ai_json 插件自检 ===, client: 127.0.0.1, server: localhost, request: "GET /ai/json_selftest HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:39:51 [info] 27657#0: *133 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:41:31 [info] 27657#0: *134 [lua] ai_json.lua:587: test(): === ai_json 插件自检 ===, client: 127.0.0.1, server: localhost, request: "GET /ai/json_selftest HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:31 [info] 27657#0: *134 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:41:41 [info] 27657#0: *135 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-good provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *135 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 518 token（prompt 估 6）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [warn] 27657#0: *135 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [error] 27657#0: *135 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [warn] 27657#0: *135 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *135 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [error] 27657#0: *135 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *135 [lua] observability.lua:521: log(): [ai-obs] {"got_done":false,"sse_event_count":0,"total_req_cost":0.014999866485596,"prompt_tokens":8,"is_biz_error":false,"completion_tokens":0,"time":"2026-11-28 12:41:41","total_tokens":8,"status":502,"req_id":"29544dd8bdafb98c4ca5026c2268836d","path":"\/v1\/chat\/completions","mode":"passthrough"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *135 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:41:41 [info] 27657#0: *139 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 518 -> 实际 0，最终记账 518, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:41:41 [error] 27657#0: *140 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:41:41 [error] 27657#0: *140 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:41:41 [info] 27657#0: *142 [lua] ai_json.lua:412: access(): [ai-json] schema prompt injected, stream=false, schema_len=77, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *142 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-good provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *142 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 581 token（prompt 估 69）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [warn] 27657#0: *142 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [error] 27657#0: *142 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [warn] 27657#0: *142 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *142 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [error] 27657#0: *142 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *142 [lua] observability.lua:521: log(): [ai-obs] {"req_id":"0693ceca447e5cb3977140da40c6da60","completion_tokens":0,"got_done":false,"sse_event_count":0,"total_req_cost":0.020999908447266,"is_biz_error":false,"time":"2026-11-28 12:41:41","total_tokens":82,"prompt_tokens":82,"path":"\/v1\/chat\/completions","status":502,"mode":"passthrough"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *142 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:41:41 [info] 27657#0: *146 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 581 -> 实际 0，最终记账 581, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:41:41 [info] 27657#0: *148 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-bad provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *148 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 515 token（prompt 估 3）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [warn] 27657#0: *148 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [error] 27657#0: *148 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [warn] 27657#0: *148 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *148 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [error] 27657#0: *148 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *148 [lua] observability.lua:521: log(): [ai-obs] {"req_id":"f975cf6783d9702cd5d3870558aadae0","got_done":false,"sse_event_count":0,"status":502,"prompt_tokens":4,"is_biz_error":false,"completion_tokens":0,"total_tokens":4,"total_req_cost":0.01200008392334,"path":"\/v1\/chat\/completions","time":"2026-11-28 12:41:41","mode":"passthrough"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:41:41 [info] 27657#0: *152 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 515 -> 实际 0，最终记账 515, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:41:41 [info] 27657#0: *148 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:41:57 [info] 27657#0: *154 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-good provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:57 [info] 27657#0: *154 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 518 token（prompt 估 6）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:57 [warn] 27657#0: *154 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:57 [error] 27657#0: *154 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:57 [warn] 27657#0: *154 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:57 [info] 27657#0: *154 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:41:57 [warn] 27657#0: *154 [lua] ai_json.lua:505: body_filter(): [ai-json] json validate fail: json decode fail: Expected value but found invalid token at character 1 while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:41:57 [info] 27657#0: *154 [lua] observability.lua:521: log(): [ai-obs] {"is_biz_error":false,"total_tokens":10,"path":"\/v1\/chat\/completions","mode":"json","completion_tokens":2,"req_id":"5c327c4caa23fe947e4837ddfb3b49cf","status":200,"got_done":false,"sse_event_count":0,"total_req_cost":0.024999856948853,"time":"2026-11-28 12:41:57","prompt_tokens":8} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:41:57 [info] 27657#0: *154 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:41:57 [error] 27657#0: *159 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:41:57 [error] 27657#0: *159 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:41:57 [info] 27657#0: *158 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 518 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:42:58 [info] 27657#0: *161 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-good provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *161 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 518 token（prompt 估 6）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [warn] 27657#0: *161 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [error] 27657#0: *161 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [warn] 27657#0: *161 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *161 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *161 [lua] ai_json.lua:497: body_filter(): [ai-json] json validate success while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *161 [lua] observability.lua:521: log(): [ai-obs] {"sse_event_count":0,"total_req_cost":0.023000001907349,"is_biz_error":false,"req_id":"9dfc069b191608eeeb70edd028325bd1","path":"\/v1\/chat\/completions","prompt_tokens":8,"time":"2026-11-28 12:42:58","got_done":false,"completion_tokens":2,"status":200,"total_tokens":10,"mode":"json"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *161 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:42:58 [error] 27657#0: *166 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:42:58 [error] 27657#0: *166 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:42:58 [info] 27657#0: *165 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 518 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:42:58 [info] 27657#0: *168 [lua] ai_json.lua:412: access(): [ai-json] schema prompt injected, stream=false, schema_len=77, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *168 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-good provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *168 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 581 token（prompt 估 69）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [warn] 27657#0: *168 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [error] 27657#0: *168 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [warn] 27657#0: *168 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *168 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *168 [lua] ai_json.lua:497: body_filter(): [ai-json] json validate success while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *168 [lua] observability.lua:521: log(): [ai-obs] {"time":"2026-11-28 12:42:58","path":"\/v1\/chat\/completions","req_id":"e829961ed6b76637f326c1bfa8278797","total_req_cost":0.0090000629425049,"got_done":false,"sse_event_count":0,"prompt_tokens":10,"status":200,"completion_tokens":0,"total_tokens":10,"mode":"json","is_biz_error":false} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:42:58 [info] 27657#0: *168 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:42:58 [info] 27657#0: *172 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 581 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:06 [info] 27657#0: *174 [lua] ai_json.lua:412: access(): [ai-json] schema prompt injected, stream=false, schema_len=37, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [info] 27657#0: *174 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-good provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [info] 27657#0: *174 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 571 token（prompt 估 59）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [warn] 27657#0: *174 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [error] 27657#0: *174 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [warn] 27657#0: *174 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [info] 27657#0: *174 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [warn] 27657#0: *174 [lua] ai_json.lua:505: body_filter(): [ai-json] json validate fail: schema validate fail: $ missing required field: name while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [info] 27657#0: *174 [lua] observability.lua:521: log(): [ai-obs] {"status":200,"got_done":false,"sse_event_count":0,"prompt_tokens":10,"is_biz_error":false,"mode":"json","total_tokens":10,"time":"2026-11-28 12:43:06","path":"\/v1\/chat\/completions","total_req_cost":0.018999814987183,"req_id":"cb7b9d0a2c41aba51e63d7bab90c75c8","completion_tokens":0} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:06 [info] 27657#0: *174 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:43:06 [error] 27657#0: *179 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:06 [error] 27657#0: *179 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:06 [info] 27657#0: *178 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 571 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:06 [info] 27657#0: *181 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-bad provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:07 [info] 27657#0: *181 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 515 token（prompt 估 3）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:07 [warn] 27657#0: *181 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:07 [error] 27657#0: *181 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:07 [warn] 27657#0: *181 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:07 [info] 27657#0: *181 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:07 [warn] 27657#0: *181 [lua] ai_json.lua:505: body_filter(): [ai-json] json validate fail: json decode fail: Expected value but found invalid token at character 1 while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:07 [info] 27657#0: *181 [lua] observability.lua:521: log(): [ai-obs] {"path":"\/v1\/chat\/completions","mode":"json","req_id":"d9b282e1c5f553b1034788a088ea793f","status":200,"got_done":false,"sse_event_count":0,"total_req_cost":0.021000146865845,"prompt_tokens":4,"is_biz_error":false,"completion_tokens":6,"total_tokens":10,"time":"2026-11-28 12:43:07"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:07 [info] 27657#0: *181 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:43:07 [info] 27657#0: *185 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 515 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:16 [info] 27657#0: *187 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-bad provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [warn] 27657#0: *187 [lua] token_limit.lua:244: access(): token_limit: set_body_data fail: nil, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *187 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 515 token（prompt 估 3）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [warn] 27657#0: *187 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [error] 27657#0: *187 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [warn] 27657#0: *187 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *187 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *187 [lua] observability.lua:521: log(): [ai-obs] {"path":"\/v1\/chat\/completions","mode":"sse","req_id":"03ed14020b3927282068d224d0241490","total_req_cost":0.35800004005432,"got_done":true,"sse_event_count":3,"status":200,"prompt_tokens":4,"is_biz_error":false,"completion_tokens":16,"time":"2026-11-28 12:43:16","total_tokens":20,"stream_duration":0.15299987792969,"token_per_sec":104.57524683355,"is_stream_break":false,"ttft":0.17499995231628} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *187 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:43:16 [error] 27657#0: *193 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:16 [error] 27657#0: *193 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:16 [info] 27657#0: *191 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 515 -> 实际 0，最终记账 515, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:16 [info] 27657#0: *195 [lua] ai_json.lua:412: access(): [ai-json] schema prompt injected, stream=false, schema_len=77, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *195 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-good provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *195 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 577 token（prompt 估 65）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [warn] 27657#0: *195 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [error] 27657#0: *195 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [warn] 27657#0: *195 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *195 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *195 [lua] ai_json.lua:497: body_filter(): [ai-json] json validate success while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *195 [lua] observability.lua:521: log(): [ai-obs] {"time":"2026-11-28 12:43:16","mode":"json","got_done":false,"sse_event_count":0,"total_req_cost":0.023000001907349,"prompt_tokens":10,"is_biz_error":false,"completion_tokens":0,"total_tokens":10,"status":200,"req_id":"b4c5b36ecc395403aeb1fb3eb27b561a","path":"\/v1\/chat\/completions"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:16 [info] 27657#0: *195 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:43:16 [info] 27657#0: *199 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 577 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:31 [notice] 26238#0: signal 1 (SIGHUP) received from 27908, reconfiguring
+2026/11/28 12:43:31 [notice] 26238#0: reconfiguring
+2026/11/28 12:43:31 [alert] 26238#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/28 12:43:31 [notice] 26238#0: using the "epoll" event method
+2026/11/28 12:43:31 [notice] 26238#0: start worker processes
+2026/11/28 12:43:31 [notice] 26238#0: start worker process 27912
+2026/11/28 12:43:31 [notice] 27657#0: gracefully shutting down
+2026/11/28 12:43:31 [notice] 27657#0: exiting
+2026/11/28 12:43:31 [notice] 27657#0: exit
+2026/11/28 12:43:31 [notice] 26238#0: signal 17 (SIGCHLD) received from 27657
+2026/11/28 12:43:31 [notice] 26238#0: worker process 27657 exited with code 0
+2026/11/28 12:43:31 [notice] 26238#0: signal 29 (SIGIO) received
+2026/11/28 12:43:32 [info] 27912#0: *201 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-retry provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:32 [info] 27912#0: *201 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 518 token（prompt 估 6）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:32 [warn] 27912#0: *201 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:32 [error] 27912#0: *201 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:32 [warn] 27912#0: *201 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:32 [info] 27912#0: *201 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:32 [warn] 27912#0: *201 [lua] ai_json.lua:505: body_filter(): [ai-json] json validate fail: json decode fail: Expected value but found invalid token at character 1 while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:32 [info] 27912#0: *201 [lua] observability.lua:521: log(): [ai-obs] {"req_id":"b6d5a2061249da46a5c45fa0867e81e7","time":"2026-11-28 12:43:32","got_done":false,"sse_event_count":0,"prompt_tokens":8,"is_biz_error":false,"completion_tokens":2,"total_tokens":10,"status":200,"total_req_cost":0.021000146865845,"path":"\/v1\/chat\/completions","mode":"json"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:32 [info] 27912#0: *201 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:43:32 [info] 27912#0: *205 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 518 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:32 [error] 27912#0: *206 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:32 [error] 27912#0: *206 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:34 [info] 27912#0: *208 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:43:57 [info] 27912#0: *209 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-retry provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *209 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 518 token（prompt 估 6）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [warn] 27912#0: *209 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [error] 27912#0: *209 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [warn] 27912#0: *209 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *209 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [warn] 27912#0: *209 [lua] ai_json.lua:508: body_filter(): [ai-json] json validate fail: json decode fail: Expected value but found invalid token at character 1 while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *209 [lua] ai_json.lua:541: body_filter(): [ai-json] async retry scheduled, record_id=rid:c5331dc2f08d0a29e2b10dc3a404e311 while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *209 [lua] observability.lua:521: log(): [ai-obs] {"path":"\/v1\/chat\/completions","req_id":"f19b56ecfdd8fa8ec16f6560a6f290c4","got_done":false,"sse_event_count":0,"prompt_tokens":8,"total_req_cost":0.029999971389771,"is_biz_error":false,"completion_tokens":2,"status":200,"total_tokens":10,"time":"2026-11-28 12:43:57","mode":"json"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *209 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:43:57 [info] 27912#0: *215 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 518 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:57 [error] 27912#0: *216 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:57 [error] 27912#0: *216 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:57 [info] 27912#0: *218 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-retry provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *218 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 518 token（prompt 估 6）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [warn] 27912#0: *218 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [error] 27912#0: *218 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [warn] 27912#0: *218 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *218 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *218 [lua] ai_json.lua:500: body_filter(): [ai-json] json validate success while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *218 [lua] observability.lua:521: log(): [ai-obs] {"completion_tokens":2,"total_tokens":10,"mode":"json","path":"\/v1\/chat\/completions","status":200,"got_done":false,"sse_event_count":0,"total_req_cost":0.025000095367432,"req_id":"42662c2442bbb25b9bb7ef81659f9561","time":"2026-11-28 12:43:57","prompt_tokens":8,"is_biz_error":false} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:43:57 [info] 27912#0: *222 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 518 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:43:57 [info] 27912#0: *218 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:43:59 [info] 27912#0: *224 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:44:19 [info] 27912#0: *225 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-bad provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *225 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 512 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [warn] 27912#0: *225 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [error] 27912#0: *225 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [warn] 27912#0: *225 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *225 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [warn] 27912#0: *225 [lua] ai_json.lua:508: body_filter(): [ai-json] json validate fail: json decode fail: Expected value but found invalid token at character 1 while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *225 [lua] ai_json.lua:541: body_filter(): [ai-json] async retry scheduled, record_id=rid:f8f9096f35fe56c161134ed10b968bd0 while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *225 [lua] observability.lua:521: log(): [ai-obs] {"status":200,"req_id":"d2a6ef61e9f79ec20d9dfee54c958aed","time":"2026-11-28 12:44:19","got_done":false,"sse_event_count":0,"total_req_cost":0.019999980926514,"prompt_tokens":0,"is_biz_error":false,"completion_tokens":10,"path":"\/v1\/chat\/completions","mode":"json","total_tokens":10} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *225 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:44:19 [error] 27912#0: *232 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:19 [error] 27912#0: *232 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:19 [info] 27912#0: *231 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 512 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:19 [info] 27912#0: *234 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-bad provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *234 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 512 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [warn] 27912#0: *234 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [error] 27912#0: *234 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [warn] 27912#0: *234 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *234 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [warn] 27912#0: *234 [lua] ai_json.lua:508: body_filter(): [ai-json] json validate fail: json decode fail: Expected value but found invalid token at character 1 while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *234 [lua] observability.lua:521: log(): [ai-obs] {"total_tokens":10,"time":"2026-11-28 12:44:19","path":"\/v1\/chat\/completions","req_id":"7c0805f865d9179104176dbe9373977d","got_done":false,"sse_event_count":0,"total_req_cost":0.019000053405762,"prompt_tokens":0,"is_biz_error":false,"completion_tokens":10,"status":200,"mode":"json"} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:44:19 [info] 27912#0: *238 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 512 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:19 [info] 27912#0: *234 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:44:21 [info] 27912#0: *240 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:44:27 [info] 27912#0: *241 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:44:38 [notice] 26238#0: signal 1 (SIGHUP) received from 28026, reconfiguring
+2026/11/28 12:44:38 [notice] 26238#0: reconfiguring
+2026/11/28 12:44:38 [alert] 26238#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/28 12:44:38 [notice] 26238#0: using the "epoll" event method
+2026/11/28 12:44:38 [notice] 26238#0: start worker processes
+2026/11/28 12:44:38 [notice] 26238#0: start worker process 28030
+2026/11/28 12:44:38 [notice] 27912#0: gracefully shutting down
+2026/11/28 12:44:38 [notice] 27912#0: exiting
+2026/11/28 12:44:38 [notice] 27912#0: exit
+2026/11/28 12:44:38 [notice] 26238#0: signal 17 (SIGCHLD) received from 27912
+2026/11/28 12:44:38 [notice] 26238#0: worker process 27912 exited with code 0
+2026/11/28 12:44:38 [notice] 26238#0: signal 29 (SIGIO) received
+2026/11/28 12:44:39 [info] 28030#0: *242 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-bad provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:39 [info] 28030#0: *242 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 512 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:39 [warn] 28030#0: *242 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:39 [error] 28030#0: *242 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:39 [warn] 28030#0: *242 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:39 [info] 28030#0: *242 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:39 [info] 28030#0: *242 [lua] observability.lua:521: log(): [ai-obs] {"req_id":"917f17791afbae55924b535aa76d6362","got_done":false,"sse_event_count":0,"path":"\/v1\/chat\/completions","prompt_tokens":0,"is_biz_error":false,"total_req_cost":0.018999814987183,"total_tokens":10,"time":"2026-11-28 12:44:39","completion_tokens":10,"mode":"json","status":200} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:44:39 [info] 28030#0: *242 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:44:39 [info] 28030#0: *246 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 512 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:39 [error] 28030#0: *247 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:39 [error] 28030#0: *247 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:48 [notice] 26238#0: signal 1 (SIGHUP) received from 28064, reconfiguring
+2026/11/28 12:44:48 [notice] 26238#0: reconfiguring
+2026/11/28 12:44:48 [alert] 26238#0: lua_code_cache is off; this will hurt performance in /home/cliondev/code/openresty12532/nginx.conf:23
+2026/11/28 12:44:48 [notice] 26238#0: using the "epoll" event method
+2026/11/28 12:44:48 [notice] 26238#0: start worker processes
+2026/11/28 12:44:48 [notice] 26238#0: start worker process 28068
+2026/11/28 12:44:48 [notice] 28030#0: gracefully shutting down
+2026/11/28 12:44:48 [notice] 28030#0: exiting
+2026/11/28 12:44:48 [notice] 28030#0: exit
+2026/11/28 12:44:48 [notice] 26238#0: signal 17 (SIGCHLD) received from 28030
+2026/11/28 12:44:48 [notice] 26238#0: worker process 28030 exited with code 0
+2026/11/28 12:44:48 [notice] 26238#0: signal 29 (SIGIO) received
+2026/11/28 12:44:49 [info] 28068#0: *249 [lua] ai_json.lua:590: test(): === ai_json 插件自检 ===, client: 127.0.0.1, server: localhost, request: "GET /ai/json_selftest HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [info] 28068#0: *249 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:44:49 [info] 28068#0: *250 [lua] ai_proxy.lua:198: access(): ai_proxy: [json-test-token] model=gpt-json-good provider=openai -> 127.0.0.1:19001/v1/chat/completions, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [info] 28068#0: *250 [lua] token_limit.lua:291: access(): token_limit: consumer=[json-test-token] 预占 512 token（prompt 估 0）, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [warn] 28068#0: *250 [lua] http_connect.lua:21: failed to load module `resty.openssl.*`, mTLS isn't supported without lua-resty-openssl:
+...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: module 'resty.openssl.x509.chain' not found:
+	no field package.preload['resty.openssl.x509.chain']
+	no file '/home/cliondev/code/openresty12532/lua_plugins/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.ljbc'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain/init.lua'
+	no file './resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/resty/openssl/x509/chain/init.lua'
+	no file '/usr/local/openresty/site/lualib/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/lualib/resty/openssl/x509/chain.so'
+	no file './resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty/openssl/x509/chain.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/usr/local/openresty/site/lualib/resty.so'
+	no file '/usr/local/openresty/lualib/resty.so'
+	no file './resty.so'
+	no file '/usr/local/lib/lua/5.1/resty.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/resty.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'require'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:15: in function <...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14>
+	[C]: in function 'xpcall'
+	...v/code/openresty12532/lua_plugins/resty/http_connect.lua:14: in main chunk
+	[C]: in function 'require'
+	.../cliondev/code/openresty12532/lua_plugins/resty/http.lua:182: in main chunk
+	[C]: in function 'require'
+	.../code/openresty12532/lua_plugins/vec_cache/vec_cache.lua:60: in main chunk
+	[C]: in function 'require'
+	access_by_lua(nginx.conf:256):27: in main chunk, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [error] 28068#0: *250 connect() failed (111: Connection refused), client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [warn] 28068#0: *250 [lua] vec_cache.lua:348: access(): vec_cache: embedding 失败，fail-open 直通: http fail: connection refused, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [info] 28068#0: *250 [lua] quota.lua:345: access(): quota: consumer=[json-test-token] 未配置月度额度，跳过限额, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [info] 28068#0: *250 [lua] ai_json.lua:500: body_filter(): [ai-json] json validate success while sending to client, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [info] 28068#0: *250 [lua] observability.lua:521: log(): [ai-obs] {"total_req_cost":0.019000053405762,"got_done":false,"sse_event_count":0,"time":"2026-11-28 12:44:49","req_id":"0870e41f881f605cd7c8141b15c4f572","prompt_tokens":0,"is_biz_error":false,"completion_tokens":10,"mode":"json","path":"\/v1\/chat\/completions","total_tokens":10,"status":200} while logging request, client: 127.0.0.1, server: localhost, request: "POST /v1/chat/completions HTTP/1.1", upstream: "http://127.0.0.1:19001/v1/chat/completions", host: "127.0.0.1:8080"
+2026/11/28 12:44:49 [info] 28068#0: *250 client 127.0.0.1 closed keepalive connection
+2026/11/28 12:44:49 [info] 28068#0: *254 [lua] token_limit.lua:393: correct_usage(): token_limit: consumer=[json-test-token] 预占 512 -> 实际 10，最终记账 10, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:49 [error] 28068#0: *255 connect() failed (111: Connection refused), context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/11/28 12:44:49 [error] 28068#0: *255 [lua] observability.lua:464: [ai-obs] pushgateway send failed: connection refused, context: ngx.timer, client: 127.0.0.1, server: 0.0.0.0:8080
