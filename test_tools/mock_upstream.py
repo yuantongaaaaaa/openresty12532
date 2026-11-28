@@ -97,6 +97,44 @@ class H(BaseHTTPRequestHandler):
                                   "delta": {"content": "，网络断了"}}]},
                 ], with_done=False)
 
+            # ===== AI-历史对话插件测试场景 =====
+            # 3. history 前缀模型：首个 delta.content 回显上游收到的 messages
+            #    概况（条数 + 最后一条 user 内容），用于断言网关是否拼接历史
+            if "history" in model:
+                msgs = body.get("messages") or []
+                last_user = "<none>"
+                for m in reversed(msgs):
+                    if isinstance(m, dict) and m.get("role") == "user":
+                        last_user = m.get("content", "")
+                        break
+                roles = ",".join(m.get("role", "?") for m in msgs
+                                 if isinstance(m, dict))
+                first_content = (f"[hist_echo msgs={len(msgs)} roles={roles} "
+                                 f"last_user={last_user}]")
+                if not stream:
+                    return self._send_json({
+                        "id": "chatcmpl-hist", "object": "chat.completion",
+                        "created": CREATED, "model": model,
+                        "choices": [{"index": 0, "finish_reason": "stop",
+                                     "message": {"role": "assistant",
+                                                 "content": first_content}}],
+                        "usage": {"total_tokens": 10}})
+                return self._send_sse([
+                    {"id": "chatcmpl-hist", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": None,
+                                  "delta": {"role": "assistant",
+                                            "content": first_content}}]},
+                    {"id": "chatcmpl-hist", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": None,
+                                  "delta": {"content": "，历史对话插件测试完成"}}]},
+                    {"id": "chatcmpl-hist", "object": "chat.completion.chunk",
+                     "created": CREATED, "model": model,
+                     "choices": [{"index": 0, "finish_reason": "stop",
+                                  "delta": {}}]},
+                ])
+
             if not stream:
                 return self._send_json({
                     "id": "chatcmpl-mock", "object": "chat.completion",
