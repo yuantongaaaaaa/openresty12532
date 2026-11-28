@@ -176,6 +176,42 @@ function _M.access()
         return err_json(ngx.HTTP_BAD_REQUEST, "unsupported model: " .. model)
     end
 
+    -- 5.1 意图路由覆盖（AI-意图识别插件 ai_intent，位于本插件之前的 access
+    --     链，识别结果写 ngx.ctx.intent_route）。两种覆盖形态：
+    --       a) intent_route.model    指定意图目标大模型 -> 改写请求模型并
+    --          重新路由（新模型同样受该 token 的 allow_models 白名单约束）
+    --       b) intent_route.backend / uri 直接覆盖上游地址（同厂商不同实例
+    --          分流，沿用原厂商协议转换与密钥配置）
+    local intent_route = ngx.ctx.intent_route
+    if type(intent_route) == "table" then
+        if type(intent_route.model) == "string" and intent_route.model ~= "" then
+            if not model_allowed(cfg.allow_models, intent_route.model) then
+                return err_json(ngx.HTTP_FORBIDDEN,
+                    "token not allowed access model: " .. intent_route.model)
+            end
+            local p2, r2 = match_route(intent_route.model)
+            if p2 then
+                provider, route = p2, r2
+                req.model = intent_route.model
+            else
+                ngx.log(ngx.WARN, "ai_proxy: 意图路由模型无匹配厂商，回退原路由: ",
+                    intent_route.model)
+            end
+        elseif type(intent_route.backend) == "string" and intent_route.backend ~= ""
+                and type(route) == "table" then
+            -- 必须新建表副本，不能原地改共享的默认路由表
+            route = {
+                backend = intent_route.backend,
+                uri      = (type(intent_route.uri) == "string"
+                            and intent_route.uri ~= "" and intent_route.uri
+                            or route.uri),
+                key      = route.key,
+                prefix   = route.prefix,
+                token_api = route.token_api,
+            }
+        end
+    end
+
     -- 6. 请求协议转换（改 path / 替换上游凭证 / 字段映射）
     ngx.ctx.provider = provider
     ngx.ctx.openai_req = req
@@ -196,7 +232,9 @@ function _M.access()
     ngx.var.ai_request_uri = route.uri
 
     ngx.log(ngx.INFO, "ai_proxy: [", gateway_token, "] model=", model,
-        " provider=", provider, " -> ", route.backend, route.uri)
+        " provider=", provider, " -> ", route.backend, route.uri,
+        (type(ngx.ctx.ai_intent) == "string"
+            and (" intent=" .. ngx.ctx.ai_intent) or ""))
 end
 
 -- ---------------------------------------------------------------------------
